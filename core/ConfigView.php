@@ -9,7 +9,7 @@ class ConfigView
 {
 
 
-    public function __construct(private string $nameView)
+    public function __construct(private string $nameView, private $data)
     {
     }
 
