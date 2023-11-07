@@ -12,7 +12,8 @@ class Login
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->dataForm["SendLogin"])) {
-            var_dump($this->dataForm);
+            $valLogin = new \App\adms\Models\AdmsLogin();
+            $valLogin->login($this->dataForm);
             $this->data['form'] = $this->dataForm;
         }
 

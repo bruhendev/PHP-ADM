@@ -9,7 +9,7 @@ services:
       - "8000:80"  # Alterada a porta para 8000
     volumes:
       - ./:/var/www/html
-    command: /bin/sh -c "a2enmod rewrite && apt-get update && apt-get install -y unzip && php -r 'copy(\"https://getcomposer.org/installer\", \"composer-setup.php\");' && php composer-setup.php --install-dir=/usr/local/bin --filename=composer && rm composer-setup.php && apache2-foreground"
+    command: /bin/sh -c "docker-php-ext-install pdo_mysql && a2enmod rewrite && apt-get update && apt-get install -y unzip && php -r 'copy(\"https://getcomposer.org/installer\", \"composer-setup.php\");' && php composer-setup.php --install-dir=/usr/local/bin --filename=composer && rm composer-setup.php && apache2-foreground"
     networks:
       - my-network
 

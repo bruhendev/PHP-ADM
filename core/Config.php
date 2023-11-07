@@ -18,9 +18,9 @@ abstract class Config {
         define('DB', 'mysql');
         define('HOST', 'localhost');
         define('USER', 'root');
-        define('PASS', 'marcio72');
-        define('DBNAME', 'celkeadm');
-        define('PORT', 3306);
+        define('PASS', '123456');
+        define('DBNAME', 'adm');
+        define('PORT', 3308);
         
         // echo "<pre>"; var_dump("Script: xxxxxxxx, Linha: xxxx ", $this->xxxxxxx); echo "</pre>";
         
