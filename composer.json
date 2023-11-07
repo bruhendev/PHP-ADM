@@ -1,0 +1,17 @@
+{
+    "name": "bruno/adm",
+    "description": "Projeto ADM",
+    "authors": [
+        {
+            "name": "Bruno Henrique"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core",
+            "App\\": "app",
+            "Adms\\": "app/adms"
+        }
+    },
+    "require": {}
+}

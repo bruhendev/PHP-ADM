@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  # Serviço do servidor web PHP com Apache
+  web:
+    image: php:8.2-apache
+    container_name: my-php-app
+    ports:
+      - "8000:80"  # Alterada a porta para 8000
+    volumes:
+      - ./:/var/www/html
+    command: /bin/sh -c "a2enmod rewrite && apt-get update && apt-get install -y unzip && php -r 'copy(\"https://getcomposer.org/installer\", \"composer-setup.php\");' && php composer-setup.php --install-dir=/usr/local/bin --filename=composer && rm composer-setup.php && apache2-foreground"
+    networks:
+      - my-network
+
+  # Serviço do banco de dados MySQL
+  db:
+    image: mysql:5.7
+    container_name: my-mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: 123456
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - my-network
+
+networks:
+  my-network:
