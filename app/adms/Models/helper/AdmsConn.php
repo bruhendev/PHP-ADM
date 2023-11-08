@@ -6,7 +6,7 @@ use PDO;
 
 class AdmsConn
 {
-    private string $db = DB;
+    
     private string $host = HOST;
     private string $user = USER;
     private string $pass = PASS;
@@ -14,12 +14,11 @@ class AdmsConn
     private int|string $port = PORT;
     private object $connect;
 
-    public function connectDB()
+    public function connectDB(): PDO
     {
         try {
-            // $this->connect = new PDO("{$this->db}:host={$this->host};port={$this->port};dbname=" . $this->dbName, $this->user, $this->pass);
-            $this->connect = new PDO("mysql:host=db;dbname=adm;port=3306", "root", "123456");
-            echo "Conexão...Ok!";
+            $this->connect = new PDO("mysql:host={$this->host};dbname={$this->dbName};port={$this->port}", $this->user, $this->pass);
+            //echo "Conexão...Ok!";
             return $this->connect;
         } catch (\PDOException $err) {
             die("Error: Por favor tente novamente");

@@ -131,11 +131,14 @@ class ConfigController extends Config
     public function loadPage()
     {
        
-        //Define o caminho da classe depois de "sanitizada pelo constructor"
-        $this->classe = "\\App\\adms\\Controllers\\" . $this->urlController;
-        //Instancia a classe através de um obojeto, seu nome + ()
-        $classeCarregar = new $this->classe();
-        //Invoca o método da classe, seu nome + ()
-        $classeCarregar->{$this->urlMetodo}();
+        // //Define o caminho da classe depois de "sanitizada pelo constructor"
+        // $this->classe = "\\App\\adms\\Controllers\\" . $this->urlController;
+        // //Instancia a classe através de um obojeto, seu nome + ()
+        // $classeCarregar = new $this->classe();
+        // //Invoca o método da classe, seu nome + ()
+        // $classeCarregar->{$this->urlMetodo}();
+
+        $loadPageAdm = new CarregarPgAdm();
+        $loadPageAdm->loadPage($this->urlController, $this->urlMetodo, $this->urlParametro);
     }
 }

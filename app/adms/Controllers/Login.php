@@ -14,6 +14,11 @@ class Login
         if (!empty($this->dataForm["SendLogin"])) {
             $valLogin = new \App\adms\Models\AdmsLogin();
             $valLogin->login($this->dataForm);
+
+            if ($valLogin->getResult()) {
+                $urlDestino = "http://localhost:8000/dashboard/index";
+                header("Location: http://localhost:8000/dashboard/index");
+            }
             $this->data['form'] = $this->dataForm;
         }
 
